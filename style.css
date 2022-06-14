@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(246, 240, 150);
+}
+
+h2 {
+    color: blueviolet;
+}
+
+
+.p5Canvas{
+  border: 2px red solid;
+  margin: auto;
+}
+
+#defaultCanvas0{
+    /* background-color: rgb(4, 249, 225); */
+    margin-left: 150px;
+}
+
+
+/* .check {
+    width: 150px;
+    height: 150px;
+    background-color: chartreuse;
+    text-align: center;
+} */
