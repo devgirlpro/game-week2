@@ -8,7 +8,9 @@ let gameStart = false;
 document.getElementsByClassName("glow-on-hover")[0].addEventListener("click", function() {
 
    if(gameStart === false) {
+
       gameStart = true;
+      song.play();
    }else {
       location.reload()
    }
@@ -65,7 +67,9 @@ function draw() {
       ellipse(enemy.x, enemy.y, 30, 14);
       if(enemy.y > height) {
          text("YOU LOSE!", width/2, height/2);
-         noLoop()
+         noLoop();
+         song.stop()
+
       }
    }
 
@@ -103,7 +107,7 @@ text(score, 25, 25)
 
    function mousePressed() {
       //spawn a bullet when you clicks
-      song.play();
+     
       console.log("it's clicked");
    
       let bullet = {
