@@ -1,11 +1,28 @@
 let bullets = [];
 let enemies = [];
 let score = 0;
+let song;
+let gameStart = false;
 
+
+document.getElementsByClassName("glow-on-hover")[0].addEventListener("click", function() {
+
+   if(gameStart === false) {
+      gameStart = true;
+   }else {
+      location.reload()
+   }
+} )
+
+
+function preload() {
+   // soundFormats('mp3', 'wav');
+    song = loadSound("./songs/idea-34284.mp3")
+ }
 
 function setup() {
-   createCanvas(400, 800);
-
+   createCanvas(400, 400);
+  
    //spawn enemies
    for(let i = 0; i < 25; i++) {
       // console.log("enemy")
@@ -15,9 +32,18 @@ function setup() {
       }
       enemies.push(enemy)
    }
+   
 }
 
+
+
+
 function draw() {
+   if (gameStart) {
+
+      
+
+
    background(151);
    ellipseMode(CENTER);
    //draw the player
@@ -34,7 +60,7 @@ function draw() {
    
    //update & draw enemies
    for (let enemy of enemies) {
-      enemy.y += 2;
+      enemy.y += 1.5;
       fill('black'); 
       ellipse(enemy.x, enemy.y, 30, 14);
       if(enemy.y > height) {
@@ -69,19 +95,23 @@ text(score, 25, 25)
 
 
 
-function mousePressed() {
-   //spawn a bullet when you clicks
-   console.log("it's clicked");
-
-   let bullet = {
-      x: mouseX,
-      y: mouseY 
    }
-   bullets.push(bullet)
- }
+   
 
 
 
+
+   function mousePressed() {
+      //spawn a bullet when you clicks
+      song.play();
+      console.log("it's clicked");
+   
+      let bullet = {
+         x: mouseX,
+         y: mouseY 
+      }
+      bullets.push(bullet)
+    }
 
 
 
